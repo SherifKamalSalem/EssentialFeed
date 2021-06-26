@@ -114,7 +114,6 @@
 		985182CC26603AE3005A716E /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				9860F8A026875A340075B0DF /* Feed Cache */,
 				98860E192662943900DB8D41 /* Feed API */,
 				985182CD26603AE3005A716E /* EssentialFeed.h */,
 				985182CE26603AE3005A716E /* Info.plist */,
@@ -128,6 +127,8 @@
 			children = (
 				985182D826603AE4005A716E /* EssentialFeedTests.swift */,
 				985182DA26603AE4005A716E /* Info.plist */,
+				9860F8A3268763C70075B0DF /* Helpers */,
+				9860F8A026875A340075B0DF /* Feed Cache */,
 				98629C94266A85B5002AA0CA /* Feed API */,
 			);
 			path = EssentialFeedTests;
@@ -153,12 +154,19 @@
 			path = "Feed Cache";
 			sourceTree = "<group>";
 		};
+		9860F8A3268763C70075B0DF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98ACFDA72679105A005E7E2B /* XCTestMemoryLeakTrackingHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		98629C94266A85B5002AA0CA /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
 				985182E92661501A005A716E /* RemoteLoaderTests.swift */,
 				983739E72674175500FC8C80 /* URLSessionHTTPClientTests.swift */,
-				98ACFDA72679105A005E7E2B /* XCTestMemoryLeakTrackingHelper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
