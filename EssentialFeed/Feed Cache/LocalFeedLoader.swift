@@ -16,7 +16,7 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
-    private func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
+    public func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
         store.deleteCachedFeed { [weak self] error in
             guard let self = self else { return }
             if let cacheDeletionrror = error {
