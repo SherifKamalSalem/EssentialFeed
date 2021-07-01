@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import EssentialFeed
+import EssentialFeed 
 
 class ValidateFeedCacheUseCaseTests: XCTestCase {
 
@@ -14,6 +14,15 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
         let (_, store) = makeSUT()
         
         XCTAssertEqual(store.receivedMessages, [])
+    }
+    
+    func test_validateCache_deleteCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        
+        sut.validateCache()
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
     }
 
     //MARK: - Helpers
@@ -24,5 +33,9 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut: sut, store: store)
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
 }
