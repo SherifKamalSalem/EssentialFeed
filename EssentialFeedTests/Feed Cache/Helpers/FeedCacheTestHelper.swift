@@ -27,11 +27,13 @@ extension Date {
         return 7
     }
     
-    func adding(days: Int) -> Date {
+    private func adding(days: Int) -> Date {
         let calendar = Calendar(identifier: .gregorian)
         return calendar.date(byAdding: .day, value: days, to: self)!
     }
-    
+}
+
+extension Date {
     func adding(seconds: TimeInterval) -> Date {
         return self + seconds
     }
