@@ -30,7 +30,7 @@ public final class LocalFeedLoader {
         self.store = store
         self.currentDate = currentDate
     }
-}
+} 
 
 extension LocalFeedLoader {
     public typealias SaveResult = Error?
