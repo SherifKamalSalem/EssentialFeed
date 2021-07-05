@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class CodableFeedStore: FeedStore {
+public final class CodableFeedStore: FeedStore {
     
     private let storeURL: URL
     private let queue = DispatchQueue(label: "\(CodableFeedStore.self)Queue", qos: .userInteractive, attributes: .concurrent)
