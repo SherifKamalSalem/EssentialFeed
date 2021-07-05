@@ -23,18 +23,14 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_retieve_deliversFoundValueOnNonEmptyCache() {
-        let sut = makeSUT()
         
-        assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
-    }
-    
-    func test_insert_deliversNoErrorOnEmptyCache() {
-        let sut = makeSUT()
-        
-        assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_retieve_hasNoSideEffectsOnNonEmptyCache() {
+        
+    }
+    
+    func test_insert_deliversNoErrorOnNonEmptyCache() {
         
     }
     
@@ -42,8 +38,16 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         
     }
     
-    func test_delete_hasNoSideEffectsOnEmptyCache() {
+    func test_delete_deliversNoErrorOnEmptyCache() {
+        
+    }
     
+    func test_delete_hasNoSideEffectsOnEmptyCache() {
+        
+    }
+    
+    func test_delete_deliversNoErrorOnNonEmptyCache() {
+        
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
