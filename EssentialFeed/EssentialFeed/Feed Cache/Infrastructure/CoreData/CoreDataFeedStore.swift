@@ -13,58 +13,33 @@ public final class CoreDataFeedStore: FeedStore {
 		context = container.newBackgroundContext()
 	}
 
-	public func retrieve(completion: @escaping RetrievalCompletion) {
+    public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
-			do {
-				let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
-				request.returnsObjectsAsFaults = false
-				if let cache = try context.fetch(request).first {
-                    completion(.success(
-						CachedFeed(feed: cache.feed
-							.compactMap { ($0 as? ManagedFeedImage) }
-							.map {
-								LocalFeedImage(id: $0.id, description: $0.imageDescription, location: $0.location, url: $0.url)
-							},
-						timestamp: cache.timestamp)))
-				} else {
-                    completion(.success(.none))
-				}
-			} catch {
-				completion(.failure(error))
-			}
-		}
-	}
-	
+            do {
+                completion(Result {
+                    try ManagedCache.find(in: context).map { CachedFeed(feed: $0.localFeed,
+                                                                        timestamp: $0.timestamp) }
+                })
+            }
+        }
+    }
+    
 	public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
         perform { context in
-			do {
+            completion(Swift.Result {
                 let managedCache = try ManagedCache.newUniqueInstance(in: context)
-				managedCache.timestamp = timestamp
-				managedCache.feed = NSOrderedSet(array: feed.map { local in
-					let managed = ManagedFeedImage(context: context)
-					managed.id = local.id
-					managed.imageDescription = local.description
-					managed.location = local.location
-					managed.url = local.url
-					return managed
-				})
-
-				try context.save()
-                completion(.success(()))
-			} catch {
-                completion(.failure(error))
-			}
+                managedCache.timestamp = timestamp
+                managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
+                try context.save()
+            })
 		}
 	}
 
 	public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         perform { context in
-            do {
+            completion(Swift.Result {
                 try ManagedCache.find(in: context).map(context.delete).map(context.save)
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
 	}
     
