@@ -57,6 +57,10 @@
 		987E10B2269514DB00BB6572 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C0DB022491E1200AC754E /* FeedCacheTestHelpers.swift */; };
 		987E10B32695155300BB6572 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C0DB222491EEF00AC754E /* SharedTestHelpers.swift */; };
 		98B48FC2269B6E2600ED8CA1 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FC1269B6E2600ED8CA1 /* FeedRefreshViewController.swift */; };
+		98B48FC5269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FC4269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift */; };
+		98B48FC7269B988D00ED8CA1 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FC6269B988D00ED8CA1 /* UIButton+TestHelpers.swift */; };
+		98B48FC9269B98CD00ED8CA1 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FC8269B98CD00ED8CA1 /* UIControl+TestHelpers.swift */; };
+		98B48FCB269BA08100ED8CA1 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +167,10 @@
 		987E10A826950FCE00BB6572 /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		987E10AA26950FCE00BB6572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98B48FC1269B6E2600ED8CA1 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
+		98B48FC4269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		98B48FC6269B988D00ED8CA1 /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
+		98B48FC8269B98CD00ED8CA1 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
+		98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +380,7 @@
 		984301A5269846FF002E119E /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				98B48FC3269B980F00ED8CA1 /* Helpers */,
 				984301A8269846FF002E119E /* Info.plist */,
 				98464E122698D0230026DAE6 /* FeedViewControllerTests.swift */,
 			);
@@ -447,6 +456,17 @@
 				986435B0269A0E3E003303CF /* UIView+Shimmering.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		98B48FC3269B980F00ED8CA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98B48FC4269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift */,
+				98B48FC6269B988D00ED8CA1 /* UIButton+TestHelpers.swift */,
+				98B48FC8269B98CD00ED8CA1 /* UIControl+TestHelpers.swift */,
+				98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -754,6 +774,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				98464E132698D0230026DAE6 /* FeedViewControllerTests.swift in Sources */,
+				98B48FC7269B988D00ED8CA1 /* UIButton+TestHelpers.swift in Sources */,
+				98B48FC5269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift in Sources */,
+				98B48FCB269BA08100ED8CA1 /* UIImage+TestHelpers.swift in Sources */,
+				98B48FC9269B98CD00ED8CA1 /* UIControl+TestHelpers.swift in Sources */,
 				98464E202698EC780026DAE6 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
