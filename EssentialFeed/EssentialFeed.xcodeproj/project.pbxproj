@@ -63,6 +63,7 @@
 		98B48FCB269BA08100ED8CA1 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */; };
 		98B48FCD269BA15200ED8CA1 /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FCC269BA15200ED8CA1 /* FeedImageCell+TestHelpers.swift */; };
 		98B48FCF269BA20B00ED8CA1 /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FCE269BA20B00ED8CA1 /* FeedViewControllerTests+LoaderSpy.swift */; };
+		98B48FD1269BA26400ED8CA1 /* FeedViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B48FD0269BA26400ED8CA1 /* FeedViewControllerTests+Assertions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		98B48FCC269BA15200ED8CA1 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		98B48FCE269BA20B00ED8CA1 /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
+		98B48FD0269BA26400ED8CA1 /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +473,7 @@
 				98B48FCA269BA08100ED8CA1 /* UIImage+TestHelpers.swift */,
 				98B48FCC269BA15200ED8CA1 /* FeedImageCell+TestHelpers.swift */,
 				98B48FCE269BA20B00ED8CA1 /* FeedViewControllerTests+LoaderSpy.swift */,
+				98B48FD0269BA26400ED8CA1 /* FeedViewControllerTests+Assertions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				98464E132698D0230026DAE6 /* FeedViewControllerTests.swift in Sources */,
 				98B48FC7269B988D00ED8CA1 /* UIButton+TestHelpers.swift in Sources */,
 				98B48FC5269B982300ED8CA1 /* UIRefreshControl+TestHelpers.swift in Sources */,
+				98B48FD1269BA26400ED8CA1 /* FeedViewControllerTests+Assertions.swift in Sources */,
 				98B48FCB269BA08100ED8CA1 /* UIImage+TestHelpers.swift in Sources */,
 				98B48FC9269B98CD00ED8CA1 /* UIControl+TestHelpers.swift in Sources */,
 				98B48FCD269BA15200ED8CA1 /* FeedImageCell+TestHelpers.swift in Sources */,
