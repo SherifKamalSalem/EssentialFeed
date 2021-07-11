@@ -9,7 +9,7 @@
 import UIKit
 import EssentialFeed
 
-final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+final class FeedImageCellController {
     private var refreshController: FeedRefreshViewController?
     private var imageLoader: FeedImageDataLoader?
     private var tableModel = [FeedImage]() {
