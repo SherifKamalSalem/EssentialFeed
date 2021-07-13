@@ -5,11 +5,11 @@
 //  Created by sherif kamal on 13/07/2021.
 //  Copyright © 2021 Essential Developer. All rights reserved.
 //
-
+ 
 import Foundation
 import EssentialFeed
 
-protocol FeedLoadingView: AnyObject {
+protocol FeedLoadingView {
     func display(isLoading: Bool)
 }
 
@@ -26,7 +26,7 @@ final class FeedPresenter {
     }
     
     var view: FeedView?
-    weak var loadingView: FeedLoadingView?
+    var loadingView: FeedLoadingView?
     
     func loadFeed() {
         loadingView?.display(isLoading: true)
