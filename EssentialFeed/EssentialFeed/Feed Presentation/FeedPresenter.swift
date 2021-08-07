@@ -13,10 +13,6 @@ public protocol FeedView {
     func display(viewModel: FeedViewModel)
 }
 
-public protocol FeedLoadingView {
-    func display(_ viewModel: FeedLoadingViewModel)
-}
-
 public final class FeedPresenter {
     private let view: FeedView
     private let errorView: FeedErrorView
