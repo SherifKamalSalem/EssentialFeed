@@ -1,0 +1,10 @@
+/* 
+  Feed.strings
+  EssentialFeed
+
+  Created by sherif kamal on 07/08/2021.
+  Copyright © 2021 Essential Developer. All rights reserved.
+*/
+
+"FEED_VIEW_TITLE" = "Το Feed μου";
+"FEED_VIEW_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
