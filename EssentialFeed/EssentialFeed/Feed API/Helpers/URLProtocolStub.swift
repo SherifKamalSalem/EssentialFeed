@@ -8,15 +8,7 @@
 
 import Foundation
 
-private class URLProtocolStub: URLProtocol {
-    private static var _stub: Stub?
-    private static var stub: Stub? {
-        get { return queue.sync { _stub } }
-        set { queue.sync { _stub = newValue } }
-    }
-    
-    private static var requestObserver: ((URLRequest) -> Void)?
-    
+public class URLProtocolStub: URLProtocol {
     private struct Stub {
         let data: Data?
         let response: URLResponse?
@@ -24,30 +16,35 @@ private class URLProtocolStub: URLProtocol {
         let requestObserver: ((URLRequest) -> Void)?
     }
     
+    private static var _stub: Stub?
+    private static var stub: Stub? {
+        get { return queue.sync { _stub } }
+        set { queue.sync { _stub = newValue } }
+    }
+    
     private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
     
-    static func stub(data: Data?, response: URLResponse?, error: Error?) {
+    public static func stub(data: Data?, response: URLResponse?, error: Error?) {
         stub = Stub(data: data, response: response, error: error, requestObserver: nil)
     }
     
-    static func observeRequests(observer: @escaping (URLRequest) -> Void) {
+    public static func observeRequests(observer: @escaping (URLRequest) -> Void) {
         stub = Stub(data: nil, response: nil, error: nil, requestObserver: observer)
     }
     
-    static func removeStub() {
+    public static func removeStub() {
         stub = nil
     }
     
-    override class func canInit(with request: URLRequest) -> Bool {
-        requestObserver?(request)
+    public override class func canInit(with request: URLRequest) -> Bool {
         return true
     }
     
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    public override class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
     
-    override func startLoading() {
+    public override func startLoading() {
         guard let stub = URLProtocolStub.stub else { return }
         
         if let data = stub.data {
@@ -67,5 +64,5 @@ private class URLProtocolStub: URLProtocol {
         stub.requestObserver?(request)
     }
     
-    override func stopLoading() {}
+    public override func stopLoading() {}
 }
