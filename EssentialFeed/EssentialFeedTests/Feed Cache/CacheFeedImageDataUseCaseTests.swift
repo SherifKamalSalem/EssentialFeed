@@ -36,6 +36,14 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
         })
     }
     
+    func test_saveImageDataFromURL_succeedsOnSuccessfulStoreInsertion() {
+        let (sut, store) = makeSUT()
+
+        expect(sut, toCompleteWith: .success(()), when: {
+            store.completeInsertionSuccessfully()
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
@@ -55,7 +63,8 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
         
         sut.save(anyData(), for: anyURL()) { receivedResult in
             switch (receivedResult, expectedResult) {
-            case (.success, .success): break
+            case (.success, .success):
+                XCTAssertTrue(true)
             case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
                   .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
