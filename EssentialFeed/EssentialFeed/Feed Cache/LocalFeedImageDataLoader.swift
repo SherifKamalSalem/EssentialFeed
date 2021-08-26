@@ -8,29 +8,9 @@
 
 import Foundation
 
-public final class LocalFeedImageDataLoader {
+public final class LocalFeedImageDataLoader: FeedImageDataLoader {
     public typealias LoadResult = FeedImageDataLoader.Result
 
-    private class LoadImageDataTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
-        
-        public init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
-            self.completion = completion
-        }
-        
-        func complete(with result: FeedImageDataLoader.Result) {
-            completion?(result)
-        }
-        
-        func cancel() {
-            preventFurtherCompletions()
-        }
-        
-        private func preventFurtherCompletions() {
-            completion = nil
-        }
-    }
-    
     public enum SaveError: Error {
         case failed
     }
@@ -52,8 +32,9 @@ public final class LocalFeedImageDataLoader {
             guard self != nil else { return }
             task.complete(with: result
                             .mapError { _ in LoadError.failed }
-                            .flatMap { data in data.map { .success($0) } ?? .failure(LoadError.notFound) }
-            )
+                            .flatMap { data in
+                                data.map { .success($0) } ?? .failure(LoadError.notFound)
+                            })
         }
         return task
     }
@@ -69,5 +50,4 @@ extension LocalFeedImageDataLoader {
             )
         }
     }
-
 }
