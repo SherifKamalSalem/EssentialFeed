@@ -1,39 +1,6 @@
 import XCTest
 import EssentialFeed
 
-class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
-    private let primary: FeedImageDataLoader
-    private let fallback: FeedImageDataLoader
-
-    init(primary: FeedImageDataLoader, fallback: FeedImageDataLoader) {
-        self.primary = primary
-        self.fallback = fallback
-    }
-    
-    private class TaskWrapper: FeedImageDataLoaderTask {
-        var wrapped: FeedImageDataLoaderTask?
-        
-        func cancel() {
-            wrapped?.cancel()
-        }
-    }
-
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        let task = TaskWrapper()
-        task.wrapped = primary.loadImageData(from: url) { [weak self] result in
-            switch result {
-            case .success:
-                completion(result)
-                
-            case .failure:
-                task.wrapped = self?.fallback.loadImageData(from: url) { _ in }
-            }
-
-        }
-        return task
-    }
-}
-
 class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     func test_init_doesNotLoadImageData() {
@@ -97,6 +64,15 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         })
     }
 
+    func test_loadImageData_deliversErrorOnBothPrimaryAndFallbackLoaderFailure() {
+        let (sut, primaryLoader, fallbackLoader) = makeSUT()
+
+        expect(sut, toCompleteWith: .failure(anyNSError()), when: {
+            primaryLoader.complete(with: anyNSError())
+            fallbackLoader.complete(with: anyNSError())
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primary: LoaderSpy, fallback: LoaderSpy) {
@@ -107,15 +83,6 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeaks(fallbackLoader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, primaryLoader, fallbackLoader)
-    }
-    
-    func test_loadImageData_deliversErrorOnBothPrimaryAndFallbackLoaderFailure() {
-        let (sut, primaryLoader, fallbackLoader) = makeSUT()
-
-        expect(sut, toCompleteWith: .failure(anyNSError()), when: {
-            primaryLoader.complete(with: anyNSError())
-            fallbackLoader.complete(with: anyNSError())
-        })
     }
     
     private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
