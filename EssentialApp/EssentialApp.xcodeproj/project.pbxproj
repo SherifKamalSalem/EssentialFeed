@@ -19,6 +19,7 @@
 		9875F59826D8215A00680F7D /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9875F59526D8215A00680F7D /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9875F59926D8215A00680F7D /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9875F59626D8215A00680F7D /* EssentialFeediOS.framework */; };
 		9875F59A26D8215A00680F7D /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9875F59626D8215A00680F7D /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9875F59F26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875F59E26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		9875F58826D81FB100680F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9875F59526D8215A00680F7D /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9875F59626D8215A00680F7D /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9875F59E26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				9875F57B26D81FB100680F7D /* EssentialAppTests.swift */,
 				9875F57D26D81FB100680F7D /* Info.plist */,
+				9875F59E26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9875F57C26D81FB100680F7D /* EssentialAppTests.swift in Sources */,
+				9875F59F26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
