@@ -25,6 +25,7 @@
 		9875F5A526D83BD500680F7D /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875F5A426D83BD500680F7D /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 		9875F5A626D83EAB00680F7D /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875F5A426D83BD500680F7D /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 		9875F5A926D8431C00680F7D /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875F5A826D8431C00680F7D /* XCTestCase+MemoryLeakTracking.swift */; };
+		9875F5AB26D8439B00680F7D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875F5AA26D8439B00680F7D /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		9875F5A226D828B200680F7D /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		9875F5A426D83BD500680F7D /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		9875F5A826D8431C00680F7D /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		9875F5AA26D8439B00680F7D /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9875F5A826D8431C00680F7D /* XCTestCase+MemoryLeakTracking.swift */,
+				9875F5AA26D8439B00680F7D /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			files = (
 				9875F5A626D83EAB00680F7D /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 				9875F57C26D81FB100680F7D /* EssentialAppTests.swift in Sources */,
+				9875F5AB26D8439B00680F7D /* SharedTestHelpers.swift in Sources */,
 				9875F59F26D8234E00680F7D /* FeedLoadWithFallbackCompositeTests.swift in Sources */,
 				9875F5A326D828B200680F7D /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				9875F5A926D8431C00680F7D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
