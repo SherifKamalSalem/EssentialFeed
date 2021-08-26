@@ -40,6 +40,27 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
     }
 }
 
+private final class LoadImageDataTask: FeedImageDataLoaderTask {
+    private var completion: ((FeedImageDataLoader.Result) -> Void)?
+    
+    init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
+        self.completion = completion
+    }
+    
+    func complete(with result: FeedImageDataLoader.Result) {
+        completion?(result)
+    }
+    
+    func cancel() {
+        preventFurtherCompletions()
+    }
+    
+    private func preventFurtherCompletions() {
+        completion = nil
+    }
+}
+
+
 extension LocalFeedImageDataLoader {
     public typealias SaveResult = Result<Void, Swift.Error>
     
