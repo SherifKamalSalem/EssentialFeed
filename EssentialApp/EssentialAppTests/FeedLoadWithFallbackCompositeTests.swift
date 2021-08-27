@@ -8,14 +8,14 @@ class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         let primaryFeed = uniqueFeed()
         let fallbackFeed = uniqueFeed()
         let sut = makeSUT(primaryResult: .success(primaryFeed), fallbackResult: .success(fallbackFeed))
-
+        
         expect(sut, toCompleteWith: .success(primaryFeed))
     }
     
     func test_load_deliversFallbackFeedOnPrimaryLoaderFailure() {
         let fallbackFeed = uniqueFeed()
         let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackFeed))
-
+        
         expect(sut, toCompleteWith: .success(fallbackFeed))
     }
     
@@ -36,7 +36,7 @@ class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-
+    
     private func expect(_ sut: FeedLoader, toCompleteWith expectedResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         
@@ -54,11 +54,7 @@ class FeedLoaderWithFallbackCompositeTests: XCTestCase {
             
             exp.fulfill()
         }
-                
+        
         wait(for: [exp], timeout: 1.0)
-    }
-
-    private func uniqueFeed() -> [FeedImage] {
-        return [FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())]
     }
 }
