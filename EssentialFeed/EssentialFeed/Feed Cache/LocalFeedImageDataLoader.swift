@@ -60,9 +60,8 @@ private final class LoadImageDataTask: FeedImageDataLoaderTask {
     }
 }
 
-
-extension LocalFeedImageDataLoader {
-    public typealias SaveResult = Result<Void, Swift.Error>
+extension LocalFeedImageDataLoader: FeedImageDataCache {
+     public typealias SaveResult = FeedImageDataCache.Result
     
     public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
         store.insert(data, for: url) { [weak self] result in
