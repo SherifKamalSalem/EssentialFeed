@@ -8,7 +8,6 @@
 
 import XCTest
 import EssentialFeed
-import UIKit
 
 
 class FeedImagePresenterTests: XCTestCase {
