@@ -44,5 +44,5 @@ class EssentialAppUIAcceptanceTests: XCTestCase {
         
         let feedCells = app.cells.matching(identifier: "feed-image-cell")
         XCTAssertEqual(feedCells.count, 0)
-    }
+    } 
 }
