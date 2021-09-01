@@ -6,9 +6,10 @@
 //  Copyright © 2021 Essential Developer. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import EssentialFeediOS
 import EssentialFeed
+
 
 final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
